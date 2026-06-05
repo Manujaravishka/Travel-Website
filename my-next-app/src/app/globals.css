@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+:root {
+  --ocean-50: #e6f1f8;
+  --ocean-100: #c2d9ea;
+  --ocean-200: #8fb6d4;
+  --ocean-300: #5a92bd;
+  --ocean-400: #2e73a3;
+  --ocean-500: #0e5c8a;
+  --ocean-600: #0a4a70;
+  --ocean-700: #073654;
+  --ocean-800: #052239;
+  --ocean-900: #031322;
+
+  --emerald-50: #e6f4ef;
+  --emerald-100: #bce0d2;
+  --emerald-200: #8fcdb4;
+  --emerald-300: #5cb893;
+  --emerald-400: #2ea378;
+  --emerald-500: #1f8a70;
+  --emerald-600: #186a55;
+  --emerald-700: #114a3b;
+
+  --sunset-50: #fdece2;
+  --sunset-100: #fbceb1;
+  --sunset-200: #f6aa7c;
+  --sunset-300: #ef8751;
+  --sunset-400: #e8743c;
+  --sunset-500: #d65d28;
+  --sunset-600: #b14a1e;
+
+  --beige-50: #fdfaf4;
+  --beige-100: #f5efe6;
+  --beige-200: #ece3d2;
+  --beige-300: #d9ccb1;
+
+  --ink-900: #0b0f17;
+  --ink-700: #1f2733;
+  --ink-500: #4b5563;
+  --ink-300: #d1d5db;
+
+  --background: #ffffff;
+  --foreground: var(--ink-900);
+}
+
+@theme inline {
+  --color-ocean-50: var(--ocean-50);
+  --color-ocean-100: var(--ocean-100);
+  --color-ocean-200: var(--ocean-200);
+  --color-ocean-300: var(--ocean-300);
+  --color-ocean-400: var(--ocean-400);
+  --color-ocean-500: var(--ocean-500);
+  --color-ocean-600: var(--ocean-600);
+  --color-ocean-700: var(--ocean-700);
+  --color-ocean-800: var(--ocean-800);
+  --color-ocean-900: var(--ocean-900);
+
+  --color-emerald-50: var(--emerald-50);
+  --color-emerald-100: var(--emerald-100);
+  --color-emerald-200: var(--emerald-200);
+  --color-emerald-300: var(--emerald-300);
+  --color-emerald-400: var(--emerald-400);
+  --color-emerald-500: var(--emerald-500);
+  --color-emerald-600: var(--emerald-600);
+  --color-emerald-700: var(--emerald-700);
+
+  --color-sunset-50: var(--sunset-50);
+  --color-sunset-100: var(--sunset-100);
+  --color-sunset-200: var(--sunset-200);
+  --color-sunset-300: var(--sunset-300);
+  --color-sunset-400: var(--sunset-400);
+  --color-sunset-500: var(--sunset-500);
+  --color-sunset-600: var(--sunset-600);
+
+  --color-beige-50: var(--beige-50);
+  --color-beige-100: var(--beige-100);
+  --color-beige-200: var(--beige-200);
+  --color-beige-300: var(--beige-300);
+
+  --color-ink-900: var(--ink-900);
+  --color-ink-700: var(--ink-700);
+  --color-ink-500: var(--ink-500);
+  --color-ink-300: var(--ink-300);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--sunset-400);
+    color: white;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-dark {
+    background: rgba(11, 15, 23, 0.4);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .container-luxe {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-luxe {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-ocean {
+    background: linear-gradient(135deg, var(--ocean-500) 0%, var(--ocean-700) 100%);
+  }
+
+  .gradient-sunset {
+    background: linear-gradient(135deg, var(--sunset-400) 0%, var(--sunset-600) 100%);
+  }
+
+  .gradient-tropical {
+    background: linear-gradient(135deg, var(--emerald-500) 0%, var(--ocean-500) 50%, var(--sunset-400) 100%);
+  }
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.animate-blob {
+  animation: blob 12s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
